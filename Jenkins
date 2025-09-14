@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/gaurav6386gaur/devops-task.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t node-app .'
+            }
+        }
+        stage('Run Container') {
+            steps {
+                sh 'docker rm -f node-app || true'
+                sh 'docker run -d --name node-app -p 3000:3000 node-app'
+            }
+        }
+    }
+}
