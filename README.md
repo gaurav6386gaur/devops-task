@@ -1,61 +1,29 @@
-# Logo Server
 
-A simple Express.js web server that serves the Swayatt logo image.
+DevOps Task – Node.js Application Deployment with Jenkins & Docker
 
-## What is this app?
+##  Overview
+This repository contains a simple **Node.js application** that serves a static file.  
+The app is containerized with **Docker** and deployed automatically using a **Jenkins pipeline**.
 
-This is a lightweight Node.js application built with Express.js that serves a single logo image (`logoswayatt.png`) when accessed through a web browser. When you visit the root URL, the server responds by displaying the Swayatt logo.
+---
 
-## Prerequisites
+##  Setup & Deployment Guide
 
-- Node.js (version 12 or higher)
-- npm (Node Package Manager)
-
-## Installation
-
-1. Clone or download this repository
-2. Navigate to the project directory:
-   ```bash
-   cd "devops task"
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-## How to Start the App
-
-Run the following command:
+### 1. Clone Repository
 ```bash
-npm start
-```
+git clone https://github.com/SwayattDrishtigochar/devops-task.git
+cd devops-task
+2. Build Docker Image
+bash
+Copy code
+docker build -t node-app .
+3. Run Docker Container
+bash
+Copy code
+docker run -d --name node-app -p 3000:3000 node-app
+4. Access Application
+Open in browser:
 
-The server will start and display:
-```
-Server running on http://localhost:3000
-```
-
-## Usage
-
-Once the server is running, open your web browser and navigate to:
-```
-http://localhost:3000
-```
-
-You will see the Swayatt logo displayed in your browser.
-
-## Project Structure
-
-```
-├── app.js              # Main server file
-├── package.json        # Project dependencies and scripts
-├── logoswayatt.png     # Logo image file
-└── README.md          # This file
-```
-
-## Technical Details
-
-- **Framework**: Express.js
-- **Port**: 3000
-- **Endpoint**: GET `/` - serves the logo image
-- **File served**: `logoswayatt.png`
+cpp
+Copy code
+http://3.111.196.16:3000
